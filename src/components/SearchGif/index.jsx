@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { getGifsByKeyword } from '../../Redux/gifs'
-import gifsServices from '../../services/gifs'
+import { useNavigate } from 'react-router-dom'
+
 
 export const SearchGif = () => {
   const [keyword, setKeyword] = useState('')
-  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleSearchGif = async (event) => {
     event.preventDefault()
     const keywordFormated = keyword.replace(/\s+/g, '+')
-    dispatch(getGifsByKeyword(keywordFormated))
+    setKeyword('')
+    navigate(`/gif/search/${keywordFormated}`)
   }
 
   return (
     <form onSubmit={handleSearchGif}>
-      <input type="text" onChange={({ target }) => setKeyword(target.value)} />
+      <input type="text" value={keyword} onChange={({ target }) => setKeyword(target.value)} />
       <button>SEARCH</button>
     </form>
   )

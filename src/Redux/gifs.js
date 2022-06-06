@@ -5,6 +5,7 @@ const initialGifs = []
 // types
 const GET_TRENDING_GIFS = 'GET_TRENDING_GIFS'
 const GET_KEYWORD_GIFS = 'GET_KEYWORD_GIFS'
+const GET_ONE_GIF = 'GET_ONE_GIF'
 
 // reducer
 export const gifsReducer = (state = initialGifs, { type, payload }) => {
@@ -12,6 +13,8 @@ export const gifsReducer = (state = initialGifs, { type, payload }) => {
     case GET_TRENDING_GIFS:
       return payload
     case GET_KEYWORD_GIFS:
+      return payload
+    case GET_ONE_GIF:
       return payload
     default:
       return state
@@ -42,3 +45,13 @@ export const getGifsByKeyword = (keyword) => {
     } catch (error) { console.error(error) }
   }
 }
+
+export const getOneGif = (id) => {
+  return async (dispatch) => {
+    const gif = await gifsServices.getOneGif(id)
+    dispatch({
+      type: GET_ONE_GIF,
+      payload: [gif]
+    })
+  }
+} 

@@ -23,6 +23,17 @@ const getGifsByKeyword = async (keyword) => {
   }
 }
 
-const exports = { getGifsByKeyword, getTrendingGifs }
+const getOneGif = async (id) => {
+  try {
+    const url = `${BASE_URL}/${id}?api_key=${API_KEY}`
+    const response = await fetch(url)
+    const { data } = await response.json()
+    return data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const exports = { getGifsByKeyword, getTrendingGifs, getOneGif }
 
 export default exports
