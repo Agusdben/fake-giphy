@@ -1,26 +1,35 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import { Header } from './components/Header'
-import { SearchGif } from './components/SearchGif'
 
 import { Home } from './pages/Home'
-import { SearchKeyword } from './pages/SearchKeyword'
+import { SearchGif } from './pages/SearchGif'
+import { GifDescription } from './pages/GifDescription'
+
+import { GifsContextProvider } from './context/gifContext'
+import { ReturnToTop } from './components/ReturnToTop'
 
 import './App.css'
-import { GifDescription } from './pages/GifDescription'
+import { TrendingSearches } from './components/TrendingSearches'
 
 export const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <SearchGif />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/gif/search/:keyword' element={<SearchKeyword />} />
-          <Route path='/gif/description/:id' element={<GifDescription />} />
-        </Routes>
-      </div>
-    </Router>
+    <GifsContextProvider>
+      <Router>
+        <div className='app'>
+          <ReturnToTop />
+          <Header />
+          <main>
+            <TrendingSearches />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/gif/search/:keyword' element={<SearchGif />} />
+              <Route path='/gif/description/:id' element={<GifDescription />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </GifsContextProvider>
   )
 }

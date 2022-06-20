@@ -8,13 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "just-debounce-it": "3.0.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-redux": "8.0.2",
-    "react-router-dom": "^6.3.0",
-    "redux": "4.2.0",
-    "redux-devtools-extension": "2.13.9",
-    "redux-thunk": "2.4.1"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@types/react": "18.0.0",
@@ -26,11 +24,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "standard",
-      "plugin:react/recommended"
-    ],
-    "react/prop-types": [
-      "off"
+      "./node_modules/standard/eslintrc.json"
     ]
   }
 }

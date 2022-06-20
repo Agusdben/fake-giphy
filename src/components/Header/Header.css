@@ -1,0 +1,31 @@
+.header{
+  height: var(--header-height);
+
+  position: sticky;
+  z-index: 999;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  background-color: var(--bgColor-main);
+  padding: 1em;
+}
+
+
+.brand{
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+
+@media (min-width: 1024px){
+  .header{
+    flex-direction: row;
+    justify-content: left;
+    gap: 5em;
+  }
+}

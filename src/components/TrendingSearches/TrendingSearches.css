@@ -1,0 +1,34 @@
+.trending-searches__trendings {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  gap: .5em;
+  padding-bottom: 1em;
+}
+
+.trending-searches__trendings::-webkit-scrollbar {
+  display: none;
+}
+
+.trending-searches__link {
+  white-space: nowrap;
+  padding: .2em 0;
+  max-width: max-content;
+  padding: .5em;
+  background-color: #333;
+  border-radius: 5px;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.trending-searches__link:hover {
+  color: #fded6f;
+}
+
+@media (min-width: 768px) {
+  .trending-searches__trendings{
+    flex-wrap: wrap;
+  }
+}

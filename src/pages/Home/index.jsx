@@ -1,20 +1,14 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
 import { Gifs } from '../../components/Gifs'
-import { getTrendingGifs } from '../../Redux/gifs'
+import useTrendingGifs from '../../hooks/useTrendingGifs'
 
 export const Home = () => {
-  const trendingGifs = useSelector(store => store.gifs)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getTrendingGifs())
-  }, [])
+  const { trendingGifs } = useTrendingGifs()
 
   return (
-    <main>
-      <h1>Trending gifs</h1>
-      <Gifs gifs={trendingGifs}/>
-    </main>
+    <section>
+      <h2 className='home__title title'>Trending gifs</h2>
+      {trendingGifs && <Gifs gifs={trendingGifs} />}
+    </section>
   )
 }

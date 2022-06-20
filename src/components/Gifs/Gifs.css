@@ -1,0 +1,8 @@
+.gifs {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: masonry;
+  align-items: center;
+  gap: 16px;
+}
