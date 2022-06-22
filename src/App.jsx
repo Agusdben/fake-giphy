@@ -10,8 +10,9 @@ import { GifDescription } from './pages/GifDescription'
 import { GifsContextProvider } from './context/gifContext'
 import { ReturnToTop } from './components/ReturnToTop'
 
-import './App.css'
 import { TrendingSearches } from './components/TrendingSearches'
+
+import './App.css'
 
 export const App = () => {
   return (

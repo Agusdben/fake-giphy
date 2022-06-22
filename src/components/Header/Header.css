@@ -1,4 +1,4 @@
-.header{
+.header {
   height: var(--header-height);
 
   position: sticky;
@@ -15,15 +15,14 @@
 }
 
 
-.brand{
+.brand a{
   text-align: center;
   font-size: 2rem;
-  text-decoration: none;
 }
 
 
-@media (min-width: 1024px){
-  .header{
+@media (min-width: 1024px) {
+  .header {
     flex-direction: row;
     justify-content: left;
     gap: 5em;

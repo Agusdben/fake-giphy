@@ -9,6 +9,7 @@
 :root{
   --header-height: 200px;
   --bgColor-main: #191919;
+  --color-primary: #fded6f;
 }
 
 body{
@@ -43,7 +44,7 @@ input:focus{
 }
 
 button{
-  background-color: #fded6f;
+  background-color: var(--color-primary);
   padding: .5em 1em;
   border: none;
 }
@@ -59,7 +60,6 @@ button:hover{
 
 .title{
   padding: .5em 0;
-  padding-left: .5em;
   max-width: 100%;
   z-index: 999;
 }

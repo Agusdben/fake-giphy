@@ -1,14 +1,21 @@
 .search-gifs{
+  width: 100%;
+  max-width: 500px;
   display: flex;
   gap: .5em;
   padding: 0;
 }
 
 .search-gifs__form{
-  max-width: 500px;
+  display: flex;
+  width: 100%;
   border-radius: 5px;
   background-color: #fff;
   position: relative;
+}
+
+.search-gifs__input{
+  width: 100%;
 }
 
 .search-gifs__form button{

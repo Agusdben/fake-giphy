@@ -1,0 +1,15 @@
+.gif-description__gif{
+  min-height: 350px;
+  margin-bottom: 2em;
+}
+
+@media (min-width: 768px){
+  .gif-description__gif{
+    display: flex;
+    gap: 0.5em;
+  }
+  
+  .gif-description__gif > * {
+    flex: 1;
+  }
+}

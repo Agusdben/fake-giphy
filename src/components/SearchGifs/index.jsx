@@ -2,6 +2,9 @@ import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { keywordFormatter } from '../../helpers/keywordFormatter'
 import gifsServices from '../../services/gifs'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 import './SearchGifs.css'
 
 export const SearchGifs = () => {
@@ -37,8 +40,8 @@ export const SearchGifs = () => {
   return (
     <section className='search-gifs' ref={searchRef}>
       <form className='search-gifs__form' onSubmit={handleSearchGif}>
-        <button type='submit'>🔍</button>
-        <input autoFocus placeholder='Something fun...' type='text' value={keyword} onChange={handleKeyword} />
+        <button type='submit'><FontAwesomeIcon icon={faSearch} /></button>
+        <input className='search-gifs__input' autoFocus placeholder='Something fun...' type='text' value={keyword} onChange={handleKeyword} />
         {errorMSG && <span className='search-gifs__error'>{errorMSG}</span>}
       </form>
       <button className='search-gifs__random' onClick={handleRandomGif}>🎲</button>

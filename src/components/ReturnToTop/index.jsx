@@ -4,12 +4,12 @@ import './ReturnToTop.css'
 
 export const ReturnToTop = () => {
   const location = useLocation()
-  const returnToTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  const returnToTop = (options) => window.scrollTo({ top: 0, left: 0, ...options })
   useEffect(() => {
     returnToTop()
   }, [location])
 
   return (
-    <button className='return-to-top grid-center' onClick={returnToTop}>↑</button>
+    <button className='return-to-top grid-center' onClick={() => returnToTop({ behavior: 'smooth' })}>↑</button>
   )
 }

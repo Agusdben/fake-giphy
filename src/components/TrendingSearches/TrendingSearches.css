@@ -1,13 +1,11 @@
-.trending-searches__trendings {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: auto;
-  gap: .5em;
-  padding-bottom: 1em;
+.trending-searches{
+  margin-bottom: 1em;
 }
 
-.trending-searches__trendings::-webkit-scrollbar {
-  display: none;
+.trending-searches__trendings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5em;
 }
 
 .trending-searches__link {

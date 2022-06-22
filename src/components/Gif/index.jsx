@@ -5,11 +5,13 @@ import './Gif.css'
 
 const Gif = ({ gif, isLink = true }) => {
   const { url } = gif.images.original
+  const className = isLink ? 'gif grid-center' : 'gif gif--description'
   const { title } = gif
   return (
-    <picture className='gif grid-center'>
+    <picture className={className}>
       <img loading='lazy' src={url} alt={title} />
       {isLink && <Link className='gif__link' to={`/gif/description/${gif.id}`} />}
+      <span className='gif__title'>{gif.title}</span>
     </picture>
   )
 }
