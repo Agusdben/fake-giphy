@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { useLocation } from 'react-router-dom'
 import './ReturnToTop.css'
 
@@ -9,7 +11,13 @@ export const ReturnToTop = () => {
     returnToTop()
   }, [location])
 
+  useEffect(() => {
+    console.log(window.pageYOffset)
+  }, [])
+
   return (
-    <button className='return-to-top grid-center' onClick={() => returnToTop({ behavior: 'smooth' })}>↑</button>
+    <button className='return-to-top grid-center' onClick={() => returnToTop({ behavior: 'smooth' })}>
+      <FontAwesomeIcon icon={faArrowUp} />
+    </button>
   )
 }

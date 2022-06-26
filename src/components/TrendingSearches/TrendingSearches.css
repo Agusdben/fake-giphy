@@ -2,31 +2,39 @@
   margin-bottom: 1em;
 }
 
+.trendings-searches__header{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
 .trending-searches__trendings {
   display: flex;
+  max-height: 0;
+  overflow: hidden;
   flex-wrap: wrap;
   gap: .5em;
+  transition: max-height .350s linear;
 }
 
-.trending-searches__link {
-  white-space: nowrap;
-  padding: .2em 0;
-  max-width: max-content;
-  padding: .5em;
-  background-color: #333;
-  border-radius: 5px;
-
-  text-align: center;
-  text-decoration: none;
-  text-transform: capitalize;
+.trendings--expanded{
+  max-height: 500px;
 }
 
-.trending-searches__link:hover {
-  color: #fded6f;
+.trendings-searches__header button svg{
+  transition: transform .200s linear;
 }
 
+.btn--rotate svg{
+  transform: rotate(90deg);
+}
+  
 @media (min-width: 768px) {
   .trending-searches__trendings{
     flex-wrap: wrap;
+  }
+
+  .trendings--expanded{
+    max-height: 150px;
   }
 }

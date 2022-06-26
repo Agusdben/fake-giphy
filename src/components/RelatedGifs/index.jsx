@@ -11,7 +11,6 @@ const formatRelatedResults = (str) => {
 
 const RelatedGifs = ({ gif }) => {
   const keyword = gif.title ? formatRelatedResults(gif.title) : gif.user.display_name
-  console.log(keyword)
   const { gifs: relatedGifs, notFound } = useGifs(keyword)
 
   return (

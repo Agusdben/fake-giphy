@@ -1,0 +1,16 @@
+.trendings__link {
+  white-space: nowrap;
+  padding: .2em 0;
+  max-width: max-content;
+  padding: .5em;
+  background-color: #333;
+  border-radius: 5px;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.trendings__link:hover {
+  color: #fded6f;
+}
