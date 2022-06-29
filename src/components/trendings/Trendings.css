@@ -3,8 +3,11 @@
   padding: .2em 0;
   max-width: max-content;
   padding: .5em;
-  background-color: #333;
+  background-color: var(--color-green);
   border-radius: 5px;
+  font-weight: bold;
+
+  color: #000;
 
   text-align: center;
   text-decoration: none;
@@ -12,5 +15,6 @@
 }
 
 .trendings__link:hover {
-  color: #fded6f;
+  transition: filter .2s;
+  filter: brightness(150%);
 }

@@ -7,7 +7,9 @@ export const Home = () => {
 
   return (
     <section>
-      <h2 className='home__title title'>Trending gifs</h2>
+      <h2 className='title title--sticky'>
+        Trending gifs
+      </h2>
       {trendingGifs && <Gifs gifs={trendingGifs} />}
     </section>
   )

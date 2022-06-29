@@ -1,21 +1,35 @@
+:root{
+  --card-width: 250px;
+  --user-foto-width: 50px;
+}
+
 .user-card{
   display: flex;
   border-radius: 10px;
-  gap: .5em;
   padding: .5em;
-  background: #000;
+  background-color: var(--bgColor-secondary);
   margin-bottom: 1em;
 }
 
-.user-card__avatar > *{
-  width: 50px;
-  height: 50px;
+.user-card__info{
+  width: calc(var(--card-width) - var(--user-foto-width));
+  padding: 0 .5em;
+}
+
+.user-card__avatar{
+  width: var(--user-foto-width);
+  height: var(--user-foto-width);
+  text-align: center;
+  object-fit: cover;
+}
+
+.user-card__avatar svg{
+  font-size: 2rem;
 }
 
 .user-card__username{
   display: flex;
   align-items: center;
-  gap: 5px;
 }
 
 .user-card__username svg{

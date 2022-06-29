@@ -1,5 +1,6 @@
 .gif-description__gif{
   min-height: 350px;
+  max-height: 375px;
   margin-bottom: 2em;
 }
 

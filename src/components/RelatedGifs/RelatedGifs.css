@@ -1,5 +1,0 @@
-.related-gifs__title{
-  position: sticky;
-  top: var(--header-height);
-  background-color: var(--bgColor-main);
-}

@@ -9,13 +9,19 @@
 :root{
   --header-height: 200px;
   --bgColor-main: #191919;
+  --bgColor-secondary: #000;
   --color-primary: #fded6f;
+  --color-green: #93e356;
+  --color-blue: #2196f3;
+  --color-orange: #f9a825;
+  --color-purple: #7e57c2;
 }
 
 body{
   background-color: var(--bgColor-main);
   color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: calc(12px + .5vmin);
 }
 
 a{
@@ -64,10 +70,31 @@ button:hover{
   z-index: 999;
 }
 
+.title--sticky{
+  position: sticky;
+  top: var(--header-height);
+  background-color: var(--bgColor-main);
+}
+
 .title::first-letter{
   text-transform: uppercase;
 }
 
+.colorful-item:nth-child(7n) {
+  background-color: var(--color-green);
+}
+
+.colorful-item:nth-child(5n) {
+  background-color: var(--color-blue);
+}
+
+.colorful-item:nth-child(3n) {
+  background-color: var(--color-orange);
+}
+
+.colorful-item:nth-child(2n) {
+  background-color: var(--color-purple);
+}
 
 @media (min-width: 1024px){
   :root{

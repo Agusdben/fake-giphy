@@ -5,7 +5,7 @@ import './Gif.css'
 
 const Gif = ({ gif, isLink = true }) => {
   const { url } = gif.images.original
-  const className = isLink ? 'gif grid-center' : 'gif gif--description'
+  const className = isLink ? 'gif grid-center gif--link colorful-item' : 'gif gif--description colorful-item'
   const { title } = gif
   return (
     <picture className={className}>

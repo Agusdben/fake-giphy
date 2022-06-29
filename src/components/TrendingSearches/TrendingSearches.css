@@ -1,8 +1,8 @@
-.trending-searches{
+.trending-searches {
   margin-bottom: 1em;
 }
 
-.trendings-searches__header{
+.trendings-searches__header {
   display: flex;
   align-items: center;
   gap: 1em;
@@ -17,24 +17,24 @@
   transition: max-height .350s linear;
 }
 
-.trendings--expanded{
+.trendings--expanded {
   max-height: 500px;
 }
 
-.trendings-searches__header button svg{
+.trendings-searches__header button svg {
   transition: transform .200s linear;
 }
 
-.btn--rotate svg{
+.btn--rotate svg {
   transform: rotate(90deg);
 }
-  
+
 @media (min-width: 768px) {
-  .trending-searches__trendings{
+  .trending-searches__trendings {
     flex-wrap: wrap;
   }
 
-  .trendings--expanded{
-    max-height: 150px;
+  .trendings--expanded {
+    max-height: 180px;
   }
 }

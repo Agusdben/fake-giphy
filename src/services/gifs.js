@@ -22,9 +22,9 @@ const getTrendingSearches = async () => {
   }
 }
 
-const getGifsByKeyword = async (keyword, page, limit = 25) => {
+const getGifsByKeyword = async ({ keyword, page, limit = 25, rating = 'g' }) => {
   try {
-    const url = `${BASE_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${limit * page}`
+    const url = `${BASE_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${limit * page}&rating=${rating}`
     const response = await fetch(url)
     const { data } = await response.json()
     return data
@@ -33,7 +33,7 @@ const getGifsByKeyword = async (keyword, page, limit = 25) => {
   }
 }
 
-const getOneGif = async (id) => {
+const getOneGif = async ({ id }) => {
   try {
     const url = `${BASE_URL}/gifs/${id}?api_key=${API_KEY}`
     const response = await fetch(url)

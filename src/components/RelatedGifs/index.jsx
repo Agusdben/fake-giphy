@@ -1,8 +1,6 @@
 import { Gifs } from '../Gifs'
 import useGifs from '../../hooks/useGifs'
 
-import './RelatedGifs.css'
-
 const formatRelatedResults = (str) => {
   // find "GIF By ..." index and delete from string for adecaute search
   const indexOfGifWord = str.indexOf('GIF')
@@ -10,15 +8,18 @@ const formatRelatedResults = (str) => {
 }
 
 const RelatedGifs = ({ gif }) => {
-  const keyword = gif.title ? formatRelatedResults(gif.title) : gif.user.display_name
-  const { gifs: relatedGifs, notFound } = useGifs(keyword)
+  const keyword = formatRelatedResults(gif.title)
+  const { gifs: relatedGifs, notFound } =
+    keyword
+      ? useGifs({ keyword, rating: gif.rating })
+      : useGifs({ keyword: gif.username, rating: gif.rating })
 
   return (
-    <section className='related-gifs'>
-      <h2 className='title related-gifs__title'>Related Gifs</h2>
-      {relatedGifs && <Gifs gifs={relatedGifs} />}
-      {notFound && <h3>No results for this search</h3>}
-    </section>
+    <article className='related-gifs'>
+      <h2 className='title title--sticky'>Related Gifs</h2>
+      {relatedGifs.length > 0 && <Gifs gifs={relatedGifs} />}
+      {notFound && <h3>No related gif founded</h3>}
+    </article>
   )
 }
 

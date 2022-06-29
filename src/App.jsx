@@ -25,7 +25,8 @@ export const App = () => {
             <TrendingSearches />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/gif/search/:keyword' element={<SearchGif />} />
+              <Route path='/gif/search/:keyword/' element={<SearchGif />} />
+              <Route path='/gif/search/:keyword/:rating' element={<SearchGif />} />
               <Route path='/gif/description/:id' element={<GifDescription />} />
             </Routes>
           </main>

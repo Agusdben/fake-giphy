@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header className='header'>
       <div className='brand'>
-        <Link to='/'>FakeGihpy</Link>
+        <Link to='/'>FakeGiphy</Link>
       </div>
       <SearchGifs />
     </header>

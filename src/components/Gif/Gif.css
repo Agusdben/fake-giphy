@@ -1,30 +1,49 @@
-.gif{
-  display: flex;
-  justify-content: center;
+.gif {
+  width: 100%;
+  height: 350px;
   position: relative;
-  border-radius: 10px;
+  border-radius: 8px;
+  background-color: var(--color-green);
   overflow: hidden;
+  transition: .5s;
 }
 
-.gif__link{
+.gif img {
+  height: inherit;
+  max-width: unset;
+  object-fit: cover;
+}
+
+.gif--link {
+  border: 1px solid transparent;
+}
+
+.gif__link {
   position: absolute;
   z-index: 99;
   width: 100%;
   height: 100%;
 }
 
-.gif__title{
+.gif__title {
   position: absolute;
   max-width: 100%;
   overflow: hidden;
   bottom: 0;
   left: 0;
   padding: 0 .5em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
 }
 
-.gif--description{
-  background-color: #000;
+.gif--description {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bgColor-secondary);
+}
+
+@media (min-width: 1024px) {
+  .gif--link:hover img {
+    transition: transform .5s linear;
+    transform: scale(1.1);
+  }
 }

@@ -13,7 +13,7 @@ const Trendings = () => {
       <>
         {
           trendingSearches.map(trendingSearch =>
-            <Link className='trendings__link' key={trendingSearch} to={`/gif/search/${keywordFormatter(trendingSearch)}`}>
+            <Link className='trendings__link colorful-item' key={trendingSearch} to={`/gif/search/${keywordFormatter(trendingSearch)}`}>
               {trendingSearch}
             </Link>)
         }

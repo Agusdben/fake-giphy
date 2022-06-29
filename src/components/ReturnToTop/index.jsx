@@ -11,10 +11,6 @@ export const ReturnToTop = () => {
     returnToTop()
   }, [location])
 
-  useEffect(() => {
-    console.log(window.pageYOffset)
-  }, [])
-
   return (
     <button className='return-to-top grid-center' onClick={() => returnToTop({ behavior: 'smooth' })}>
       <FontAwesomeIcon icon={faArrowUp} />

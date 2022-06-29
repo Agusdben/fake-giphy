@@ -17,12 +17,12 @@ const defaultUser = {
 export const GifDescription = () => {
   const [loading, setLoading] = useState(true)
   const [gif, setGif] = useState(null)
-  const { id } = useParams()
+  const { id, rating } = useParams()
 
   useEffect(() => {
     const getGifbyId = async () => {
       setLoading(true)
-      const gif = await gifsServices.getOneGif(id)
+      const gif = await gifsServices.getOneGif({ id, rating })
       setGif(gif)
       setLoading(false)
     }
@@ -34,12 +34,12 @@ export const GifDescription = () => {
       {loading && <>CARGANDO</>}
       {!loading &&
         <>
-          <div className='gif-description__gif'>
+          <article className='gif-description__gif'>
             {gif.user && <UserCard user={gif.user} />}
             {!gif.user && <UserCard user={defaultUser} />}
             <Gif gif={gif} isLink={false} />
-          </div>
-          <RelatedGifs gif={gif} />
+          </article>
+          <RelatedGifs gif={gif} rating={rating} />
         </>}
       {!gif === 0 && <>Not Found</>}
     </section>
