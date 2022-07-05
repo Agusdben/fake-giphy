@@ -1,0 +1,10 @@
+.search-gif {
+  position: relative;
+  min-height: 100vh;
+}
+
+.search-gif__loading-next {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}

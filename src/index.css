@@ -50,8 +50,13 @@ input:focus{
 }
 
 button{
+  width: 35px;
+  height: 35px;
   background-color: var(--color-primary);
-  padding: .5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
   border: none;
 }
 
@@ -80,23 +85,27 @@ button:hover{
   text-transform: uppercase;
 }
 
-.colorful-item:nth-child(7n) {
+.colorful-item:nth-child(13n) {
   background-color: var(--color-green);
 }
 
-.colorful-item:nth-child(5n) {
+.colorful-item:nth-child(7n) {
   background-color: var(--color-blue);
 }
 
-.colorful-item:nth-child(3n) {
+.colorful-item:nth-child(5n) {
   background-color: var(--color-orange);
 }
 
-.colorful-item:nth-child(2n) {
+.colorful-item:nth-child(3n) {
   background-color: var(--color-purple);
 }
 
-@media (min-width: 1024px){
+
+#visor{
+  transform: translateY(-1000px);
+}
+@media (min-width: 768px){
   :root{
     --header-height: 100px;
   }

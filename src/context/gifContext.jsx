@@ -6,10 +6,13 @@ export const GifsContext = createContext(null)
 export const GifsContextProvider = ({ children }) => {
   const [trendingGifs, setTrendingGifs] = useState(null)
   const [trendingSearches, setTrendingSearches] = useState(null)
+  const [lastSearch, setLastSearch] = useState(() => JSON.parse(window.localStorage.getItem('LastSearch')))
+
   useEffect(() => {
     const setTrendingContent = async () => {
       const gifs = await gifsServices.getTrendingGifs()
       const trendingSearches = await gifsServices.getTrendingSearches()
+
       setTrendingGifs(gifs)
       setTrendingSearches(trendingSearches)
     }
@@ -19,7 +22,9 @@ export const GifsContextProvider = ({ children }) => {
   return (
     <GifsContext.Provider value={{
       trendingGifs,
-      trendingSearches
+      trendingSearches,
+      lastSearch,
+      setLastSearch
     }}
     >
       {children}

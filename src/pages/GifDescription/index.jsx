@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Gif from '../../components/Gif'
+import Loader from '../../components/Loader'
 import RelatedGifs from '../../components/RelatedGifs'
 import UserCard from '../../components/UserCard'
 import gifsServices from '../../services/gifs'
@@ -31,7 +32,7 @@ export const GifDescription = () => {
 
   return (
     <section className='gif-description'>
-      {loading && <>CARGANDO</>}
+      {loading && <Loader />}
       {!loading &&
         <>
           <article className='gif-description__gif'>

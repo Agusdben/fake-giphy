@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 const useObserver = (ref) => {
   const [isIntersecting, setIntersecting] = useState(false)
-
   const observer = new IntersectionObserver(
     ([entry]) => setIntersecting(entry.isIntersecting),
     {
@@ -11,11 +10,10 @@ const useObserver = (ref) => {
   )
 
   useEffect(() => {
-    if (ref) {
+    if (ref.current) {
       observer.observe(ref.current)
     }
-    return () => { observer.disconnect() } // disconnect when component is unmounted
-  }, [])
+  }, [ref.current, setIntersecting])
 
   return isIntersecting
 }

@@ -8,7 +8,7 @@
   transition: .5s;
 }
 
-.gif img {
+.gif--link img {
   height: inherit;
   max-width: unset;
   object-fit: cover;
@@ -36,8 +36,6 @@
 }
 
 .gif--description {
-  display: flex;
-  justify-content: center;
   background-color: var(--bgColor-secondary);
 }
 

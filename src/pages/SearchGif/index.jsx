@@ -6,10 +6,13 @@ import { useParams } from 'react-router-dom'
 import { Gifs } from '../../components/Gifs'
 import useGifs from '../../hooks/useGifs'
 import useObserver from '../../hooks/useObserver'
+import Loader from '../../components/Loader'
+
+import './SearchGif.css'
 
 export const SearchGif = () => {
-  const { keyword, rating = 'g' } = useParams()
-  const { gifs, notFound, setPage } = useGifs({ keyword, rating })
+  const { keyword, rating, lang } = useParams()
+  const { gifs, notFound, setPage, loading, loadingNextPage } = useGifs({ keyword, rating, lang })
   const observe = useRef()
   const isVisible = useObserver(observe)
 
@@ -21,20 +24,28 @@ export const SearchGif = () => {
     [isVisible])
 
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible && !loading) {
       debounceHandleNextPage()
     }
   }, [isVisible])
 
   return (
     <section className='search-gif'>
-      <h2 className='title title--sticky'><FontAwesomeIcon icon={faSquarePollHorizontal} /> {title}</h2>
-      {gifs.length > 0 &&
-        <article>
-          <Gifs gifs={gifs} />
-        </article>}
-      {notFound && <h3>No results for this search</h3>}
+      {loading && <Loader />}
+      <div>
+        <h2 className='title title--sticky'><FontAwesomeIcon icon={faSquarePollHorizontal} /> {title}</h2>
+        {!loading &&
+          <>
+            {!notFound
+              ? <Gifs gifs={gifs} />
+              : <h3>No results for this search</h3>}
+          </>}
+      </div>
       <div id='visor' ref={observe} />
+      {loadingNextPage &&
+        <div className='search-gif__loading-next'>
+          <Loader />
+        </div>}
     </section>
   )
 }

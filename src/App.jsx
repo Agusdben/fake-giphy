@@ -13,23 +13,27 @@ import { ReturnToTop } from './components/ReturnToTop'
 import { TrendingSearches } from './components/TrendingSearches'
 
 import './App.css'
+import Footer from './components/Footer'
 
 export const App = () => {
   return (
     <GifsContextProvider>
       <Router>
         <div className='app'>
-          <ReturnToTop />
           <Header />
-          <main>
+          <main className='app__main'>
             <TrendingSearches />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/gif/search/:keyword/' element={<SearchGif />} />
-              <Route path='/gif/search/:keyword/:rating' element={<SearchGif />} />
+              <Route path='/gif/search/:keyword/' element={<SearchGif />}>
+                <Route path=':rating' element={<SearchGif />} />
+                <Route path=':rating/:lang' element={<SearchGif />} />
+              </Route>
               <Route path='/gif/description/:id' element={<GifDescription />} />
             </Routes>
           </main>
+          <ReturnToTop />
+          <Footer />
         </div>
       </Router>
     </GifsContextProvider>

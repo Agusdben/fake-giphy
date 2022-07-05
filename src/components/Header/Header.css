@@ -23,10 +23,10 @@
   -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .header {
     flex-direction: row;
-    justify-content: left;
-    gap: 5em;
+    justify-content: normal;
+    gap: 1em;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useReducer } from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { keywordFormatter } from '../../helpers/keywordFormatter'
 import gifsServices from '../../services/gifs'
@@ -6,63 +6,36 @@ import { RATINGS } from '../../helpers/rating'
 import { LANGUAGES } from '../../helpers/languages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-
+import useForm from './hook'
+import useUser from '../../hooks/useUser'
 import './SearchGifs.css'
-
-const ACTIONS = {
-  UPDATE_KEYWORD: 'UPDATE_KEYWORD',
-  RESET_KEYWORD: 'RESET_KEYWORD',
-  SET_ERROR: 'SET_ERROR',
-  CHANGE_LANGUAGE: 'CHANGE_LANGUAGE',
-  CHANGE_RATING: 'CHANGE_RATING'
-}
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.UPDATE_KEYWORD:
-      return {
-        ...state,
-        keyword: action.payload
-      }
-    case ACTIONS.RESET_KEYWORD:
-      return {
-        ...state,
-        keyword: action.payload
-      }
-    case ACTIONS.SET_ERROR:
-      return {
-        ...state,
-        error: action.payload
-      }
-    case ACTIONS.CHANGE_RATING:
-      return {
-        ...state,
-        rating: action.payload
-      }
-    default:
-      return state
-  }
-}
+import Select from '../Select'
 
 export const SearchGifs = () => {
   const searchRef = useRef()
   const navigate = useNavigate()
+  const { setLocalLastSearch } = useUser()
 
-  const [state, dispatch] = useReducer(reducer, {
-    keyword: '',
-    error: '',
-    rating: RATINGS.g,
-    lang: LANGUAGES.en
-  })
+  const {
+    keyword,
+    error,
+    rating,
+    lang,
+    setKeyword,
+    setError,
+    setRating,
+    setLang
+  } = useForm()
 
   const handleSearchGif = async (event) => {
     event.preventDefault()
-    if (state.keyword !== '') {
-      navigate(`/gif/search/${keywordFormatter(state.keyword)}/${state.rating}`)
-      dispatch({ type: ACTIONS.RESET_KEYWORD, payload: '' })
+    if (keyword !== '') {
+      setLocalLastSearch({ keyword, rating, lang })
+      setKeyword('')
+      navigate(`/gif/search/${keywordFormatter(keyword)}/${rating}/${lang}`)
     } else {
       searchRef.current.classList.toggle('empty-input')
-      dispatch({ type: ACTIONS.SET_ERROR, payload: 'Please type something' })
+      setError('Please type something')
       setTimeout(() => {
         searchRef.current.classList.toggle('empty-input')
       }, 700)
@@ -70,12 +43,15 @@ export const SearchGifs = () => {
   }
 
   const handleKeyword = ({ target }) => {
-    dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: target.value })
-    dispatch({ type: ACTIONS.SET_ERROR, payload: '' })
+    setKeyword(target.value)
   }
 
   const handleRating = ({ target }) => {
-    dispatch({ type: ACTIONS.CHANGE_RATING, payload: target.value })
+    setRating(target.value)
+  }
+
+  const handleLang = ({ target }) => {
+    setLang(target.value)
   }
 
   const handleRandomGif = async () => {
@@ -84,19 +60,19 @@ export const SearchGifs = () => {
   }
 
   return (
-    <section className='search-gifs' ref={searchRef}>
+    <section className='search-gifs'>
       <form className='search-gifs__form' onSubmit={handleSearchGif}>
-        <button type='submit'><FontAwesomeIcon icon={faSearch} /></button>
-        <input className='search-gifs__input' autoFocus placeholder='Something fun...' type='text' value={state.keyword} onChange={handleKeyword} />
-        <select onChange={handleRating}>
-          <option disabled />
-          {
-            Object.values(RATINGS).map((rating) => <option key={rating} value={rating}>{rating}</option>)
-          }
-        </select>
-        {state.error && <span className='search-gifs__error'>{state.error}</span>}
+        <div className='search-gifs__group'>
+          <Select className='search-gif__select' onChange={handleRating} options={Object.values(RATINGS)} />
+          <Select className='search-gif__select' onChange={handleLang} options={Object.values(LANGUAGES)} />
+        </div>
+        <div ref={searchRef} className='search-gifs__group search-gifs__group--last'>
+          <input className='search-gifs__input' autoFocus placeholder='Something fun...' type='text' value={keyword} onChange={handleKeyword} />
+          <button className='search-gifs__submit'><FontAwesomeIcon icon={faSearch} /></button>
+          {error && <span className='search-gifs__error'>{error}</span>}
+        </div>
       </form>
-      <button className='search-gifs__random' onClick={handleRandomGif}>🎲</button>
+      {/* <button className='search-gifs__random' onClick={handleRandomGif}>🎲</button> */}
     </section>
   )
 }
