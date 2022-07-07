@@ -31,7 +31,7 @@
 }
 
 @media (min-width: 1024px) {
-  .gif--link:hover .gif__title{
+  .gif--link:hover .gif__title {
     background-color: var(--color-primary);
     color: #000;
     font-weight: bold;
@@ -47,4 +47,5 @@
     z-index: 99;
     border: 3px solid var(--color-primary);
   }
+
 }

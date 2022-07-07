@@ -12,15 +12,15 @@ import './SearchGif.css'
 
 export const SearchGif = () => {
   const { keyword, rating, lang } = useParams()
-  const { gifs, notFound, setPage, loading, loadingNextPage } = useGifs({ keyword, rating, lang })
+  const { gifs, notFound, incrementPage, loading, loadingNextPage } = useGifs({ keyword, rating, lang })
   const observe = useRef()
   const isVisible = useObserver(observe)
 
   const title = ` Results of "${keyword.replace(/\+/g, ' ').trim()}"`
 
   const debounceHandleNextPage = useCallback(
-    debounce(() => setPage(currentPage => currentPage + 1),
-      1000),
+    debounce(() => incrementPage(),
+      1500),
     [isVisible])
 
   useEffect(() => {

@@ -30,9 +30,10 @@ export const SearchGifs = () => {
   const handleSearchGif = async (event) => {
     event.preventDefault()
     if (keyword !== '') {
+      console.log(keyword)
       setLocalLastSearch({ keyword, rating, lang })
-      setKeyword('')
       navigate(`/gif/search/${keywordFormatter(keyword)}/${rating}/${lang}`)
+      setKeyword('')
     } else {
       searchRef.current.classList.toggle('empty-input')
       setError('Please type something')
