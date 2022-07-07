@@ -11,10 +11,10 @@
   --bgColor-main: #191919;
   --bgColor-secondary: #000;
   --color-primary: #fded6f;
-  --color-green: #93e356;
-  --color-blue: #2196f3;
-  --color-orange: #f9a825;
-  --color-purple: #7e57c2;
+  --color-green: #4cb000;
+  --color-blue: #0065ae;
+  --color-orange: #9b6000;
+  --color-purple: #6a099a;
 }
 
 body{
@@ -79,6 +79,27 @@ button:hover{
   position: sticky;
   top: var(--header-height);
   background-color: var(--bgColor-main);
+}
+
+.img-fit-cover{
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  position:absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 9;
+}
+
+.img-fit-contain{
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
 }
 
 .title::first-letter{

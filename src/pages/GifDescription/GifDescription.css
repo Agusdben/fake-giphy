@@ -1,10 +1,9 @@
 .gif-description{
   position: relative;
-  min-height: 350px;
 }
 
 .gif-description__gif{
-  min-height: 100%;
+  height: 450px;
   margin-bottom: 2em;
 }
 

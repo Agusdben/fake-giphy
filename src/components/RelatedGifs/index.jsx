@@ -20,7 +20,7 @@ const RelatedGifs = ({ gif }) => {
   return (
     <article className='related-gifs' style={{ position: 'relative', minHeight: '100vh' }}>
       {loading && <Loader />}
-      <h2 className='title title--sticky'> <FontAwesomeIcon icon={faSquarePollHorizontal} /> Related Gifs</h2>
+      <h2 className='title title--sticky'> <FontAwesomeIcon icon={faSquarePollHorizontal} /> Related Gif's</h2>
       {!loading &&
         <>
           {!notFound && <Gifs gifs={relatedGifs} />}

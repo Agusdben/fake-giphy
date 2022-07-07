@@ -9,7 +9,7 @@ const Gif = ({ gif, isLink = true }) => {
   const { title } = gif
   return (
     <picture className={className}>
-      <img loading='lazy' src={url} alt={title} />
+      <img loading='lazy' className={isLink ? 'img-fit-cover' : 'img-fit-contain'} src={url} alt={title} />
       {isLink && <Link className='gif__link' to={`/gif/description/${gif.id}`} />}
       <span className='gif__title'>{gif.title}</span>
     </picture>

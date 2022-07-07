@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <section>
       <h2 className='title title--sticky'>
-        <FontAwesomeIcon icon={faSquarePollHorizontal} /> Trending gifs
+        <FontAwesomeIcon icon={faSquarePollHorizontal} /> Trending gif's
       </h2>
       {trendingGifs && <Gifs gifs={trendingGifs} />}
       {lastSearch && <GifsLastSearch lastSearch={lastSearch} />}

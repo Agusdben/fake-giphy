@@ -15,6 +15,6 @@
 }
 
 .trendings__link:hover {
-  transition: filter .2s;
+  transition: filter .2s linear;
   filter: brightness(150%);
 }

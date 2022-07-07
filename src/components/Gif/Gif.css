@@ -1,32 +1,22 @@
 .gif {
+  position: relative;
   width: 100%;
   height: 350px;
-  position: relative;
-  border-radius: 8px;
   background-color: var(--color-green);
   overflow: hidden;
   transition: .5s;
 }
 
-.gif--link img {
-  height: inherit;
-  max-width: unset;
-  object-fit: cover;
-}
-
-.gif--link {
-  border: 1px solid transparent;
-}
-
 .gif__link {
   position: absolute;
-  z-index: 99;
+  z-index: 999;
   width: 100%;
   height: 100%;
 }
 
 .gif__title {
   position: absolute;
+  z-index: 99;
   max-width: 100%;
   overflow: hidden;
   bottom: 0;
@@ -37,11 +27,24 @@
 
 .gif--description {
   background-color: var(--bgColor-secondary);
+  height: inherit;
 }
 
 @media (min-width: 1024px) {
-  .gif--link:hover img {
-    transition: transform .5s linear;
-    transform: scale(1.1);
+  .gif--link:hover .gif__title{
+    background-color: var(--color-primary);
+    color: #000;
+    font-weight: bold;
+  }
+
+  .gif--link:hover::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    border: 3px solid var(--color-primary);
   }
 }
