@@ -1,5 +1,6 @@
 const API_KEY = import.meta.env.VITE_API_KEY
 const BASE_URL = 'https://api.giphy.com/v1'
+// https://api.giphy.com/v1/gifs/search/tags?api_key=##########################&q=marvel&=20&=offset=0
 
 const getTrendingGifs = async () => {
   try {

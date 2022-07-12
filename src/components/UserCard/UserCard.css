@@ -1,44 +1,21 @@
-:root{
-  --card-width: 250px;
-  --user-foto-width: 50px;
+.user-card {
+  width: 300px;
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 50px 220px;
 }
 
-.user-card{
-  display: flex;
-  border-radius: 10px;
-  padding: .5em;
-  background-color: var(--bgColor-secondary);
-  margin-bottom: 1em;
+.user-card__avatar img, .user-card__avatar svg {
+  width: 50px;
+  height: 50px;
 }
 
-.user-card__info{
-  width: calc(var(--card-width) - var(--user-foto-width));
-  padding: 0 .5em;
+.user-card__info {
+  margin-left: 1em;
+  overflow-wrap: break-word;
 }
 
-.user-card__avatar{
-  width: var(--user-foto-width);
-  height: var(--user-foto-width);
-  text-align: center;
-  object-fit: cover;
-}
-
-.user-card__avatar svg{
-  font-size: 2rem;
-}
-
-.user-card__username{
-  display: flex;
-  align-items: center;
-}
-
-.user-card__username svg{
-  color: #15cdff;
-}
-
-@media (min-width: 768px){
-  .user-card{
-    margin: 0;
-    max-width: 250px;
-  }
+.user-card__info svg{
+  color: #3897f0;
+  margin-left: 5px;
 }

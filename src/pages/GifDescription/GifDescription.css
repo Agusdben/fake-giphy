@@ -1,19 +1,24 @@
-.gif-description{
-  position: relative;
-}
-
-.gif-description__gif{
-  height: 450px;
+.gif-description__contianer {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   margin-bottom: 2em;
 }
 
-@media (min-width: 768px){
-  .gif-description__gif{
-    display: flex;
-    gap: 0.5em;
-  }
-  
-  .gif-description__gif > * {
-    flex: 1;
+.gif-description__user{
+  background-color: #000;
+}
+
+.gif-description__controlls{
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  background-color: #000;
+}
+
+@media (min-width: 1024px){
+  .gif-description__contianer{
+    flex-direction: row;
   }
 }

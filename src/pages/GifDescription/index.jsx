@@ -1,3 +1,5 @@
+import { faShare, faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Gif from '../../components/Gif'
@@ -28,17 +30,33 @@ export const GifDescription = () => {
       setLoading(false)
     }
     getGifbyId()
-  }, [id])
+  }, [id, rating])
 
   return (
     <section className='gif-description'>
       {loading && <Loader />}
       {!loading &&
         <>
-          <article className='gif-description__gif'>
-            {gif.user && <UserCard user={gif.user} />}
-            {!gif.user && <UserCard user={defaultUser} />}
+          <article className='gif-description__contianer'>
+
+            <div className='gif-description__user'>
+              {gif.user && <UserCard user={gif.user} />}
+              {!gif.user && <UserCard user={defaultUser} />}
+            </div>
+
             <Gif gif={gif} isLink={false} />
+
+            <div className='gif-description__controlls'>
+              <div>
+                <button><FontAwesomeIcon icon={faShare} /> </button>
+                <span>Share</span>
+              </div>
+              <div>
+                <button><FontAwesomeIcon icon={faStar} /></button>
+                <span>Favorite</span>
+              </div>
+            </div>
+
           </article>
           <RelatedGifs gif={gif} rating={rating} />
         </>}
