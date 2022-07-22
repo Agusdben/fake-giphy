@@ -8,12 +8,12 @@ import { SearchGif } from './pages/SearchGif'
 import { GifDescription } from './pages/GifDescription'
 
 import { GifsContextProvider } from './context/gifContext'
-import { ReturnToTop } from './components/ReturnToTop'
 
+import { ReturnToTop } from './components/ReturnToTop'
 import { TrendingSearches } from './components/TrendingSearches'
+import Footer from './components/Footer'
 
 import './App.css'
-import Footer from './components/Footer'
 
 export const App = () => {
   return (

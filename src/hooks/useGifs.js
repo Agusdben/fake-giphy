@@ -50,7 +50,7 @@ const reducer = (state, { type, payload }) => {
 
 const useGifs = ({ keyword, rating, lang }) => {
   const initialState = {
-    gifs: [],
+    gifs: null,
     loading: true,
     page: INITIAL_PAGE,
     notFound: false,
@@ -76,7 +76,7 @@ const useGifs = ({ keyword, rating, lang }) => {
       dispatch({ type: ACTIONS.SET_LOADING, payload: false })
     }
 
-    search()
+    if (keyword) search()
   }, [keyword, rating, lang])
 
   useEffect(() => {

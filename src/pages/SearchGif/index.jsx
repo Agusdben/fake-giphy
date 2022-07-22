@@ -16,7 +16,7 @@ export const SearchGif = () => {
   const observe = useRef()
   const isVisible = useObserver(observe)
 
-  const title = ` Results of "${keyword.replace(/\+/g, ' ').trim()}"`
+  const title = ` GIFs of "${keyword.replace(/\+/g, ' ').trim()}"`
 
   const debounceHandleNextPage = useCallback(
     debounce(() => incrementPage(),

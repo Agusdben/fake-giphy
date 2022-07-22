@@ -4,7 +4,11 @@ import { GifsContext } from '../context/gifContext'
 const useUser = () => {
   const {
     lastSearch,
-    setLastSearch
+    favorites,
+    favoriteGifs,
+    isStartingApp,
+    setLastSearch,
+    setFavorites
   } = useContext(GifsContext)
 
   const setLocalLastSearch = (lastSearcgObj) => {
@@ -12,9 +16,26 @@ const useUser = () => {
     setLastSearch(lastSearcgObj)
   }
 
+  const addLocalFavorites = (gifID) => {
+    const newFavorites = favorites.concat(gifID)
+    window.localStorage.setItem('Favorites', JSON.stringify(newFavorites))
+    setFavorites(newFavorites)
+  }
+
+  const removeLocalFavorite = (gifID) => {
+    const newFavorites = favorites.filter(id => id !== gifID)
+    window.localStorage.setItem('Favorites', JSON.stringify(newFavorites))
+    setFavorites(newFavorites)
+  }
+
   return {
     lastSearch,
-    setLocalLastSearch
+    favorites,
+    favoriteGifs,
+    isStartingApp,
+    setLocalLastSearch,
+    addLocalFavorites,
+    removeLocalFavorite
   }
 }
 

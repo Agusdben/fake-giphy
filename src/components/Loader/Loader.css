@@ -5,6 +5,7 @@
   z-index: 99999;
   width: 100%;
   height: 100%;
+  background-color: var(--bgColor-main);
 }
 
 .loader span{
@@ -14,6 +15,7 @@
   background-color: #fff;
   box-shadow: 32px 0 #fff, -32px 0 #fff;
   position: relative;
+  z-index: inherit;
   animation: flash 0.5s ease-out infinite alternate;
 }
 

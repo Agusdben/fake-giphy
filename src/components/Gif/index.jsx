@@ -5,7 +5,6 @@ import './Gif.css'
 
 const Gif = ({ gif, isLink = true }) => {
   const { url } = gif.images.downsized_medium
-  // const className = isLink ? 'gif grid-center gif--link colorful-item' : 'gif gif--description grid-center'
   const className = isLink ? 'gif gif--link colorful-item' : 'gif gif--description'
   const { title } = gif
   return (

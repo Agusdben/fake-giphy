@@ -56,6 +56,17 @@ const getRandomGif = async () => {
   }
 }
 
-const exports = { getGifsByKeyword, getTrendingGifs, getTrendingSearches, getOneGif, getRandomGif }
+const getGifsByIds = async (ids) => {
+  try {
+    const url = `${BASE_URL}/gifs?api_key=${API_KEY}&ids=${ids}`
+    const response = await fetch(url)
+    const { data } = await response.json()
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const exports = { getGifsByKeyword, getTrendingGifs, getTrendingSearches, getOneGif, getRandomGif, getGifsByIds }
 
 export default exports

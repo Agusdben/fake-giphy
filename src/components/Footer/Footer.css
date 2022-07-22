@@ -1,5 +1,5 @@
 .footer{
-  height: 100px;
+  height: var(--footer-height);
   display: flex;
   align-items: center;
   padding: 2em;

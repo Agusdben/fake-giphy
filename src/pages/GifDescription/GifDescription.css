@@ -1,24 +1,52 @@
+.gif-description {
+  position: relative;
+  min-height: 500px;
+}
+
 .gif-description__contianer {
-  min-height: 350px;
   display: flex;
   flex-direction: column;
   gap: 1em;
   margin-bottom: 2em;
 }
 
-.gif-description__user{
+.gif-description__user {
   background-color: #000;
 }
 
-.gif-description__controlls{
+.gif-description__controlls {
   display: flex;
   gap: 1em;
   padding: 1em;
   background-color: #000;
 }
 
-@media (min-width: 1024px){
-  .gif-description__contianer{
+.gif-description__button span {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .gif-description__contianer {
     flex-direction: row;
+  }
+
+  .gif-description__controlls {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gif-description__button {
+    padding: 0 .5em;
+    justify-content: left;
+    gap: 1em;
+  }
+
+  .gif-description__button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gif-description__button span {
+    display: block;
   }
 }

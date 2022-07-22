@@ -1,4 +1,5 @@
 import { faShare, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -6,6 +7,7 @@ import Gif from '../../components/Gif'
 import Loader from '../../components/Loader'
 import RelatedGifs from '../../components/RelatedGifs'
 import UserCard from '../../components/UserCard'
+import useUser from '../../hooks/useUser'
 import gifsServices from '../../services/gifs'
 
 import './GifDescription.css'
@@ -21,6 +23,7 @@ export const GifDescription = () => {
   const [loading, setLoading] = useState(true)
   const [gif, setGif] = useState(null)
   const { id, rating } = useParams()
+  const { favorites, addLocalFavorites, removeLocalFavorite } = useUser()
 
   useEffect(() => {
     const getGifbyId = async () => {
@@ -31,6 +34,14 @@ export const GifDescription = () => {
     }
     getGifbyId()
   }, [id, rating])
+
+  const handleFavorite = () => {
+    favorites.includes(gif.id)
+      ? removeLocalFavorite(gif.id)
+      : addLocalFavorites(gif.id)
+  }
+
+  const handleShare = () => { }
 
   return (
     <section className='gif-description'>
@@ -47,20 +58,21 @@ export const GifDescription = () => {
             <Gif gif={gif} isLink={false} />
 
             <div className='gif-description__controlls'>
-              <div>
-                <button><FontAwesomeIcon icon={faShare} /> </button>
-                <span>Share</span>
-              </div>
-              <div>
-                <button><FontAwesomeIcon icon={faStar} /></button>
-                <span>Favorite</span>
-              </div>
+              <button className='gif-description__button' onClick={handleShare}>
+                <FontAwesomeIcon icon={faShare} />
+              </button>
+
+              <button className='gif-description__button' onClick={handleFavorite}>
+                {favorites.includes(gif.id)
+                  ? <FontAwesomeIcon icon={faStar} />
+                  : <FontAwesomeIcon icon={faRegularStar} />}
+                {/* <span>{favorites.includes(gif.id) ? 'Remove' : 'favorite'}</span> */}
+              </button>
             </div>
 
           </article>
           <RelatedGifs gif={gif} rating={rating} />
         </>}
-      {!gif === 0 && <>Not Found</>}
     </section>
   )
 }
