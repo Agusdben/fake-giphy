@@ -67,7 +67,7 @@ const useGifs = ({ keyword, rating, lang }) => {
 
       const results = await gifsServices.getGifsByKeyword({ keyword, page: INITIAL_PAGE, rating, lang })
 
-      if (results.length === 0) {
+      if (results.length === 0 || !keyword) {
         dispatch({ type: ACTIONS.SET_NOTFOUND, payload: true })
       } else {
         dispatch({ type: ACTIONS.SET_GIFS, payload: results })
@@ -76,7 +76,7 @@ const useGifs = ({ keyword, rating, lang }) => {
       dispatch({ type: ACTIONS.SET_LOADING, payload: false })
     }
 
-    if (keyword) search()
+    search()
   }, [keyword, rating, lang])
 
   useEffect(() => {

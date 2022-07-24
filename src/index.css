@@ -7,7 +7,7 @@
 }
 
 :root {
-  --header-height: 200px;
+  --header-height: 210px;
   --footer-height: 100px;
   --main-height: calc(100vh - var(--header-height) - var(--footer-height));
   --bgColor-main: #191919;
@@ -38,6 +38,7 @@ img {
 
 main {
   padding: 1em;
+  padding-top: 0;
   min-height: 100vh;
 }
 

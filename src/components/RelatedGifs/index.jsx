@@ -18,7 +18,7 @@ const RelatedGifs = ({ gif }) => {
       : useGifs({ keyword: gif.username, rating: gif.rating })
 
   return (
-    <article className='related-gifs' style={{ position: 'relative', minHeight: '100vh' }}>
+    <article className='related-gifs' style={{ minHeight: '500px' }}>
       {loading && <Loader />}
       <h2 className='title title--sticky'> <FontAwesomeIcon icon={faSquarePollHorizontal} /> Related Gif's</h2>
       {!loading &&

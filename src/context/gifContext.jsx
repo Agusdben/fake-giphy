@@ -29,6 +29,7 @@ export const GifsContextProvider = ({ children }) => {
       setFavoriteGifs(favoriteGifs)
     }
     if (favorites.length > 0) searchFavorites()
+    if (favorites.length === 0) setFavoriteGifs(null)
   }, [favorites])
 
   return (
