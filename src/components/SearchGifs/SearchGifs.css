@@ -1,22 +1,22 @@
-.search-gifs__form{
+.search-gifs__form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5em;
 }
 
-.search-gifs__group{
+.search-gifs__group {
   display: flex;
   justify-content: center;
   gap: 1em;
 }
 
-.search-gifs__group--last{
+.search-gifs__group--last {
   position: relative;
-  gap: 0;
+  gap: 5px;
 }
 
-.search-gif__select{
+.search-gif__select {
   border-radius: 5px;
   background-color: transparent;
   border: 2px solid var(--color-primary);
@@ -26,7 +26,7 @@
   width: 75px;
 }
 
-.search-gif__select:focus{
+.search-gif__select:focus {
   outline: none;
 }
 
@@ -35,16 +35,20 @@
   border: inherit;
 }
 
-.search-gifs__input{
-  border-radius: 5px 0 0 5px;
+.search-gifs__input {
+  border-radius: 5px;
   border: 2px solid var(--color-primary);
   font-weight: bold;
   width: 250px;
   color: var(--color-primary);
 }
 
-.search-gifs__submit{
-  border-radius: 0 5px 5px 0;
+.search-gifs__input:focus {
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+.search-gifs__submit {
+  border-radius: 5px;
 }
 
 .search-gifs__error {
@@ -76,7 +80,7 @@
 
 
 @media (min-width: 768px) {
-  .search-gifs__form{
+  .search-gifs__form {
     flex-wrap: nowrap;
   }
 
@@ -97,13 +101,17 @@
     transform: translate(-50%, -50%);
   }
 
-  .search-gifs__input{
+  .search-gifs__input {
     width: 300px;
+  }
+
+  .search-gifs__input:hover {
+    box-shadow: 0 0 8px var(--color-primary);
   }
 }
 
 @media (min-width: 1400px) {
-  .search-gifs__input{
+  .search-gifs__input {
     width: 450px;
   }
 }

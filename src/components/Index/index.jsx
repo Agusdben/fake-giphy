@@ -26,7 +26,10 @@ const Index = ({ indexItems }) => {
         {
           indexItems.map(index =>
             <li key={index} className='index__item'>
-              <button onClick={() => handleScroll(index)} className='index__button'>{index}</button>
+              <button onClick={() => handleScroll(index)} className='index__button'>
+                <FontAwesomeIcon className='index__icon' icon={faLessThan} />
+                <span>{index}</span>
+              </button>
             </li>)
         }
       </ul>

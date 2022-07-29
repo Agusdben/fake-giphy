@@ -1,0 +1,22 @@
+.load-more{
+  padding: 2em;
+  height: 350px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.load-more__arrow{
+  font-size: 3rem;
+  margin: auto;
+}
+
+@media(min-width: 1024px) {
+  .load-more{
+    opacity: .7;
+  }
+  .load-more:hover{
+    opacity: 1;
+  }
+}

@@ -70,7 +70,7 @@ export const SearchGifs = () => {
         <div ref={searchRef} className='search-gifs__group search-gifs__group--last'>
           <input className='search-gifs__input' autoFocus placeholder='Something fun...' type='text' value={keyword} onChange={handleKeyword} />
           <button type='submit' className='search-gifs__submit'><FontAwesomeIcon icon={faSearch} /></button>
-          {error && <span className='search-gifs__error'>{error}</span>}
+          {error && <small className='search-gifs__error'>{error}</small>}
         </div>
       </form>
       {/* <button className='search-gifs__random' onClick={handleRandomGif}>🎲</button> */}

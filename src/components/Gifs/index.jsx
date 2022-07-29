@@ -2,7 +2,7 @@ import React from 'react'
 import Gif from '../Gif'
 import './Gifs.css'
 
-export const Gifs = ({ gifs }) => {
+export const Gifs = ({ gifs, children }) => {
   const className = gifs.length < 25 ? 'gifs' : 'gifs grid-center'
   return (
     <div className={className}>
@@ -11,6 +11,7 @@ export const Gifs = ({ gifs }) => {
           <Gif key={gif.id + index} gif={gif} />
         )
       }
+      {children}
     </div>
   )
 }

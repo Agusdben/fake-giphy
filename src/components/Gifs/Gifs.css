@@ -4,3 +4,11 @@
   grid-template-rows: masonry;
   margin-bottom: 2em;
 }
+
+
+@media(min-width: 1024px){
+  .gifs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+}

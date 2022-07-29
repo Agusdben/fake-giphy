@@ -58,7 +58,7 @@ const getRandomGif = async () => {
 
 const getGifsByIds = async (ids) => {
   try {
-    const url = `${BASE_URL}/gifs?api_key=${API_KEY}&ids=${ids}`
+    const url = `${BASE_URL}/gifs?api_key=${API_KEY}&ids=${ids},`
     const response = await fetch(url)
     const { data } = await response.json()
     return data

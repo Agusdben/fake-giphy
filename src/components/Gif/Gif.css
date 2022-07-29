@@ -32,7 +32,32 @@
 
 }
 
+.gif__favorite{
+  position: absolute;
+  z-index: 99;
+  top: 5px;
+  right: 5px;
+  width: auto;
+  height: auto;
+  padding: .5em;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.gif__favorite:hover{
+  color: #000;
+}
+
 @media (min-width: 1024px) {
+  .gif{
+    max-width: 300px;
+  }
+
+  .gif--description{
+    max-width: none;
+  }
+
   .gif--link:hover .gif__title {
     background-color: var(--color-primary);
     color: #000;
@@ -48,6 +73,14 @@
     left: 0;
     z-index: 9;
     border: 3px solid var(--color-primary);
+  }
+
+  .gif__favorite{
+    opacity: .5;
+  }
+
+  .gif:hover .gif__favorite{
+    opacity: 1;
   }
 
 }

@@ -11,6 +11,7 @@ import useUser from '../../hooks/useUser'
 import gifsServices from '../../services/gifs'
 
 import './GifDescription.css'
+import useFavorite from '../../hooks/useFavorite'
 
 const defaultUser = {
   username: null,
@@ -23,7 +24,8 @@ export const GifDescription = () => {
   const [loading, setLoading] = useState(true)
   const [gif, setGif] = useState(null)
   const { id, rating } = useParams()
-  const { favorites, addLocalFavorites, removeLocalFavorite } = useUser()
+  const { favorites } = useUser()
+  const { handleFavorite } = useFavorite()
 
   useEffect(() => {
     const getGifbyId = async () => {
@@ -34,12 +36,6 @@ export const GifDescription = () => {
     }
     getGifbyId()
   }, [id, rating])
-
-  const handleFavorite = () => {
-    favorites.includes(gif.id)
-      ? removeLocalFavorite(gif.id)
-      : addLocalFavorites(gif.id)
-  }
 
   const handleShare = () => { }
 
@@ -62,11 +58,10 @@ export const GifDescription = () => {
                 <FontAwesomeIcon icon={faShare} />
               </button>
 
-              <button className='gif-description__button' onClick={handleFavorite}>
+              <button className='gif-description__button' onClick={() => handleFavorite(gif.id)}>
                 {favorites.includes(gif.id)
                   ? <FontAwesomeIcon icon={faStar} />
                   : <FontAwesomeIcon icon={faRegularStar} />}
-                {/* <span>{favorites.includes(gif.id) ? 'Remove' : 'favorite'}</span> */}
               </button>
             </div>
 
