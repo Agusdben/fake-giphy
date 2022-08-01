@@ -47,6 +47,15 @@
   }
 
   .gif-description__button span {
+    display: none;
+  }
+
+  .gif-description__button:hover span{
     display: block;
   }
+
+  .gif-description__favorite--none{
+    text-decoration: line-through;
+  }
+
 }

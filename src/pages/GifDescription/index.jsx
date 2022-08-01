@@ -1,17 +1,16 @@
-import { faShare, faStar } from '@fortawesome/free-solid-svg-icons'
-import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+
 import { useParams } from 'react-router-dom'
+
 import Gif from '../../components/Gif'
+import GifControlls from '../../components/GifControlls'
 import Loader from '../../components/Loader'
 import RelatedGifs from '../../components/RelatedGifs'
 import UserCard from '../../components/UserCard'
-import useUser from '../../hooks/useUser'
-import gifsServices from '../../services/gifs'
+
+import useSingleGif from '../../hooks/useSingleGif'
 
 import './GifDescription.css'
-import useFavorite from '../../hooks/useFavorite'
 
 const defaultUser = {
   username: null,
@@ -21,23 +20,8 @@ const defaultUser = {
 }
 
 export const GifDescription = () => {
-  const [loading, setLoading] = useState(true)
-  const [gif, setGif] = useState(null)
   const { id, rating } = useParams()
-  const { favorites } = useUser()
-  const { handleFavorite } = useFavorite()
-
-  useEffect(() => {
-    const getGifbyId = async () => {
-      setLoading(true)
-      const gif = await gifsServices.getOneGif({ id, rating })
-      setGif(gif)
-      setLoading(false)
-    }
-    getGifbyId()
-  }, [id, rating])
-
-  const handleShare = () => { }
+  const { gif, loading } = useSingleGif({ id })
 
   return (
     <section className='gif-description'>
@@ -54,18 +38,10 @@ export const GifDescription = () => {
             <Gif gif={gif} isLink={false} />
 
             <div className='gif-description__controlls'>
-              <button className='gif-description__button' onClick={handleShare}>
-                <FontAwesomeIcon icon={faShare} />
-              </button>
-
-              <button className='gif-description__button' onClick={() => handleFavorite(gif.id)}>
-                {favorites.includes(gif.id)
-                  ? <FontAwesomeIcon icon={faStar} />
-                  : <FontAwesomeIcon icon={faRegularStar} />}
-              </button>
+              <GifControlls gif={gif} />
             </div>
-
           </article>
+
           <RelatedGifs gif={gif} rating={rating} />
         </>}
     </section>
