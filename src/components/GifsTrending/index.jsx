@@ -10,9 +10,7 @@ const GifsTrendings = () => {
   if (trendingGifs) {
     return (
       <article id={HOME_INDEX.TRENDINGS}>
-        <h2 className='title title--sticky'>
-          <FontAwesomeIcon icon={faSquarePollHorizontal} /> Trending gif's
-        </h2>
+        <h2 className='title title--sticky'><FontAwesomeIcon icon={faSquarePollHorizontal} /> Trending gif's</h2>
         <Gifs gifs={trendingGifs} />
       </article>
     )

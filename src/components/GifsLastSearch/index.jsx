@@ -14,9 +14,7 @@ const GifsLastSearch = () => {
     const { keyword } = lastSearch
     return (
       <article id={HOME_INDEX.LAST_SEARCH}>
-        <h2 className='title title--sticky'>
-          <FontAwesomeIcon icon={faSquarePollHorizontal} /> Last Search "{keyword}"
-        </h2>
+        <h2 className='title title--sticky'><FontAwesomeIcon icon={faSquarePollHorizontal} /> Last Search "{keyword}"</h2>
         <Gifs gifs={gifsLastSearch}>
           <LoadMore searchObj={lastSearch} />
         </Gifs>
