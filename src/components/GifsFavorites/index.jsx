@@ -10,9 +10,7 @@ const GifsFavorites = () => {
   if (favoriteGifs) {
     return (
       <article id={HOME_INDEX.FAVORITE_GIFS}>
-        <h2 className='title title--sticky'>
-          <FontAwesomeIcon icon={faSquarePollHorizontal} /> My favorites
-        </h2>
+        <h2 className='title title--sticky'><FontAwesomeIcon icon={faSquarePollHorizontal} /> My favorites</h2>
         <Gifs gifs={favoriteGifs} />
       </article>
     )
