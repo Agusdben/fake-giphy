@@ -11,8 +11,8 @@ export const ReturnToTop = () => {
   const returnToTop = (options) => window.scrollTo({ top: 0, left: 0, ...options })
 
   useEffect(() => {
-    const scrollMaxY = document.documentElement.scrollHeight - document.documentElement.clientHeight
     window.addEventListener('scroll', () => {
+      const scrollMaxY = document.documentElement.scrollHeight - document.documentElement.clientHeight
       if (window.scrollY === scrollMaxY && location) {
         scrollToTopRef.current.classList.add('return-to-top--bottom')
       } else {
